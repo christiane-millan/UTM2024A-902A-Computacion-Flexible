@@ -10,7 +10,7 @@
 
 ### Introducción a las Redes Neuronales Artificiales
 
-1. [`Introducción`](./L01-1_intro_ML/README.md)
+1. Introducción
 2. Redes Neuronales Biológicas (RNAs)
 3. Principios de diseño de las RNAs
 4. Principios de entrenamiento de las RNAs
@@ -24,6 +24,7 @@
 
 ### Uso de ambientes virtuales
 
+*[`Ambientes virtuales`](./code/README.md)
 
 
 ### Uso de las librear `Numpy` y `Pandas` 
