@@ -24,7 +24,7 @@
 
 ### Uso de ambientes virtuales
 
-*[`Ambientes virtuales`](./code/README.md)
+[`Ambientes virtuales`](./code/README.md)
 
 
 ### Uso de las librear `Numpy` y `Pandas` 
