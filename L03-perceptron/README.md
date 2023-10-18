@@ -106,9 +106,30 @@ El peso actualizado es proporcional a el valor de $x_j^{(i)}$. Por ejemplo, si s
 
 $\Delta w_j= (1^{(i)}-(-1)^{(i)})2^{(i)}=(2)2^{(i)}=4$
 
+---
+**Ejemplo de entrenamiento del Perceptrón**
+
+Considerar la compuerta lógica AND:
+
+| No. |Entradas    |  Salidas   |
+|-----|------------|------------|
+|1    |(  1,   1)  |     1      |
+|2    |(  1,   -1) |    -1      |
+|3    |( -1,    1) |    -1      |
+|4    |( -1,   -1) |    -1      |
+
+Realizar las primeras dos épocas de entrenamiento de Adaline considerando los pesos iniciales: $ w_b = -0.6,  w_1=0.3, w_2= 0.2$, con una taza de aprendizaje $\eta = 0.5$.
+
+---
+
+**⚠️ Vectorización de las operaciones en el entrenamiento**
+
+Los datos de entrenamiento y los pesos estan representados en vectores o matrices, por lo tanto se puede utilizar el algebra lineal, para realizar el entrenamiento. 
+
+En el siguiente código implementado en `Python` se utilizan la librería `numpy` para realizar el aprendizaje del Perceptrón.
+
 * [Ejemplo de entrenamiento con compuerta AND](./code/perceptron-example.ipynb) 
-* [Práctica 1. Aprendizaje del perceptrón](./code/01-practice-perceptron/README.md)
-* [Práctica 2. Reconocimiento de dígitos 0 -9]()
+
 
 ### 4. El problema de representación
 
@@ -116,9 +137,15 @@ Es importante notar que la convergencia del perceptrón es solamente garantizada
 
 ![separable](./img/separable.png)
 
+---
+
+* [Práctica 1. Aprendizaje del perceptrón Iris](./code/01-practice-perceptron/README.md)
+* [Práctica 2. Reconocimiento de dígitos 0 - 9]()
+---
+
 ### Implementación de Perceptrón con SciKit-Learn
 
-* [`Ejemplo`](./code/perceptron_sklrn_iris.ipynb)
-* [Práctica 2. ]()
+* [`Ejemplo Perceptron ScikitLearn`](./code/perceptron_sklrn_iris.ipynb)
+* [Práctica 3. ]()
 
 [`Anterior`](../L02-adaline/README.md) | [`Siguiente`](../L04-backpropagation/README.md)

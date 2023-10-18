@@ -33,8 +33,8 @@ En esta clase el alumno conocerá:
 
 *Las diferencias.*
 
-* El Perceptron usa las etiquetas de las clases para aprender los coeficientes del modelo.
-* Adaline utiliza valores de predicción continuos para aprender los coeficientes del modelo.
+* El Perceptron **utiliza las etiquetas** de las clases para aprender los coeficientes del modelo.
+* Adaline **utiliza valores de predicción continuos** para aprender los coeficientes del modelo.
 
 La diferencia de Adaline y el perceptrón es la regla de aprendizaje (Widrow-Hoff rule). Los pesos son actualizados en una función de activación lineal en lugar de la función de unidad paso como en el Perceptrón. En Adaline, la función de activación lineal $\phi (z)$￼es simplemente la función identidad de la salida de la red, así que: $\phi(w^Tx) = w^Tx$
 
@@ -82,6 +82,22 @@ Algoritmo de entrenamiento
 3. Calcular la salida con la función de activación
 4. Actualizar los pesos
 5. Repetir los pasos 2 al 4 hasta que las salidas reales y las deseables sean iguales para todos los vectores del conjunto de entrenamiento.
+
+---
+**Ejemplo de entrenamiento de Adaline**
+
+Considerar la compuerta lógica AND:
+
+| No. |Entradas  |  Salidas  |
+|-----|----------|-----------|
+|1    |( 1,   1) |    1      |
+|2    |( 1,   0) |    0      |
+|3    |( 0,   1) |    0      |
+|4    |( 0,   0) |    0      |
+
+Realizar las primeras dos épocas de entrenamiento de Adaline considerando los pesos iniciales: $ w_b = -0.6,  w_1=0.3, w_2= 0.2$, con una taza de aprendizaje $\eta = 0.5$.
+
+---
 
 * [`Ejemplo de aprendizaje de Adaline`](./code/Ejemplo%20Adaline.ipynb)
 
