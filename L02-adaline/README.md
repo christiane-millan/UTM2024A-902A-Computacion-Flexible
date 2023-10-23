@@ -73,14 +73,25 @@ $w:= w + \Delta w$
 
 ### 4. Ajuste de pesos Adaline
 
-A pesar de que la regla de aprendizaje de Adaline se ve idéntica a la regla del Perceptrón,  debemos notar que $\phi (z^{(i)})$  con $z^{(i)} = w^Tx^{(i)}$ es un número real y no un entero como un la etiqueta de la clase. Además, la actualización de pesos se calcula a partir de todos los ejemplos de la muestra de entrenamiento (en lugar de actualizar los pesos para cada ejemplo de entrenamiento), por lo cual este enfoque es llamado como **Batch Gradiente Descendente**.
+A pesar de que la regla de aprendizaje de Adaline se ve idéntica a la regla del Perceptrón,  debemos notar que $\phi (z^{(i)})$  con $z^{(i)} = w^Tx^{(i)}$ es un número real y no un entero como en la etiqueta de la clase. Además, la actualización de pesos se calcula a partir de todos los ejemplos de la muestra de entrenamiento (en lugar de actualizar los pesos para cada ejemplo de entrenamiento), por lo cual este enfoque es llamado como **Batch Gradiente Descendente**.
 
 Algoritmo de entrenamiento
 
 1. Inicializar los pesos
 2. Calcular la entrada a la neurona
-3. Calcular la salida con la función de activación
+
+    $z= w_0x_0 + w_1x_1+ \ldots+w_m x_m = w^Tx$
+
+3. Calcular la salida con la función de activación identidad
+
+    $\phi(z)= z$
+
 4. Actualizar los pesos
+
+    $w := w + \Delta w$
+
+    $\Delta w_j =  \eta \Sigma_i (y^{(i)} - \phi(z^{(i)}))x_j^{(i)}$
+
 5. Repetir los pasos 2 al 4 hasta que las salidas reales y las deseables sean iguales para todos los vectores del conjunto de entrenamiento.
 
 ---
@@ -101,7 +112,7 @@ Realizar las primeras dos épocas de entrenamiento de Adaline considerando los p
 
 * [`Ejemplo de aprendizaje de Adaline`](./code/Ejemplo%20Adaline.ipynb)
 
-El gradiente descendente es uno de los algoritmos que se benefician con el escalado de características. Un método para el escalado de características es la estandarización. Este escalado de a los datos las propiedades de una distribución normal estándar: media cero y varianza unitaria. Esta proceso de normalización ayuda al GD a converger más rápidamente. Sin embargo, no hace a la muestra de datos original se distribuya normalmente. La normalización desplaza la media de cada característica para que se centre en cero y cada característica tenga una desviación estándar de 1 (varianza unitaria). Por ejemplo, para estandarizar la n-ésima característica, podemos simplemente restar la media de la muestra, $\mu_j$, de cada ejemplo de entrenamiento y dividirla por su desviación estándar  $\sigma_j$:
+El gradiente descendente (GD) es uno de los algoritmos que se benefician con el escalado de características. Un método para el escalado de características es la estandarización. Este escalado da a los datos las propiedades de una distribución normal estándar: media cero y varianza unitaria. Este proceso de normalización ayuda al GD a converger más rápidamente. Sin embargo, no hace que la muestra de datos original se distribuya normalmente. La normalización desplaza la media de cada característica para que se centre en cero y cada característica tenga una desviación estándar de 1 (varianza unitaria). Por ejemplo, para estandarizar la n-ésima característica, podemos simplemente restar la media de la muestra, $\mu_j$, de cada ejemplo de entrenamiento y dividirla por su desviación estándar  $\sigma_j$:
 
 $x'_j = \frac{x_j - \mu_j}{\sigma_j}$
 
@@ -119,9 +130,9 @@ se actualizan los pesos incrementalmente para cada una de las muestras del conju
 
  $\eta (y^{(i)} - \phi(z^{(i)}))x_j^{(i)}$
 
-A pesar de que SGD puede ser considerado como una  aproximación de de gradiente descendente, alcanza la convergencia normalmente más rápido por la mayor frecuencia de actualización de pesos. Dado que cada gradiente es calculado con base en un solo ejemplo de entrenamiento, la superficie de error es más ruidosa que en gradiente descendente, lo cual puede tener la ventaja que SGD puede escapar de un mínimo local plano mucho más fácilmente si trabajamos con funciones de costo no lineales. Para obtener resultados satisfactorios vía SGD es muy importante presentar los datos en un orden aleatorio, también, cambiaremos el orden de los datos de entrenamiento para cada época para prevenir ciclos.
+A pesar de que SGD puede ser considerado como una  aproximación del gradiente descendente, alcanza la convergencia normalmente más rápido por la mayor frecuencia de actualización de pesos. Dado que cada gradiente es calculado con base en un solo ejemplo de entrenamiento, la superficie de error es más ruidosa que en gradiente descendente, lo cual puede tener la ventaja que SGD puede escapar de un mínimo local plano mucho más fácilmente si trabajamos con funciones de costo no lineales. Para obtener resultados satisfactorios vía SGD es muy importante presentar los datos en un orden aleatorio, también, cambiaremos el orden de los datos de entrenamiento para cada época para prevenir ciclos.
 
-Otra ventaja de SGD es que podemos usarla para un entrenamiento online. en este entrenamiento, el modelo entrena al momento que llegan nuevos datos de entrenamiento. Esto es especialmente práctico  si se cuenta con muchos datos, por ejemplo, datos de clientes de una aplicación web, Usando aprendizaje online, el sistema puede inmediatamente adaptarse a los cambios, y los datos de entrenamiento pueden ser descartados después de actualizar el modelo si el espacio de memoria es un cuestión.
+Otra ventaja de SGD es que podemos usarla para un entrenamiento online. en este entrenamiento, el modelo entrena al momento de que llegan nuevos datos de entrenamiento. Esto es especialmente práctico si se cuenta con muchos datos, por ejemplo, datos de clientes de una aplicación web, Usando aprendizaje online, el sistema puede inmediatamente adaptarse a los cambios, y los datos de entrenamiento pueden ser descartados después de actualizar el modelo si el espacio de memoria es un cuestión.
 
 * [`Práctica de Adaline SDG`](./code/AdalineSGD.ipynb)
 
