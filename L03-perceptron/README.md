@@ -20,30 +20,59 @@ En esta clase el alumno conocerá:
 <img src="./img/perceptron.png" align="center" hspace="10">
 <div style="text-align: justify;">
 
+De manera formal podemos exponer ester problema como una tarea de clasificación binaria donde nos referimos a nuestras dos clases como 1(clase positiva) y -1 (la clase negativa) por simplicidad. Podemos definir la función de activación $\varphi(z)$ que toma la combinación lineal de ciertos valores de entrada $x$ y un correspondiente vector de pesos $w$, donde $z$ es llamada la salida de la red $z=w_1x_1 + \ldots + w_mx_m$
+
+```math
+w = \begin{bmatrix} w_1 \\ \vdots \\ w_m
+\end{bmatrix}
+
+w = \begin{bmatrix} w_1 \\ \vdots \\ w_m
+\end{bmatrix}, x = \begin{bmatrix} x_1 \\ \vdots \\ x_m
+\end{bmatrix}
+```
+
+
 ### 2. Fuciones de activación
 
-Ahora, si la salida de activación de un ejemplo en particular $x^{(i)}$, eso es, la salida de $\varphi(z)$, es mayor que el umbral definido $\theta$, lo predecimos como de la clase 1 y clase -1 de otro modo. En el algoritmo del perceptrón, la función de activación $\varphi(\cdot)$ es una simple función de paso de unidad, la cual algunas veces es llamada función de paso Heaviside:
+Ahora, si la salida de activación de un ejemplo en particular $x^{(i)}$, es decir, que si la salida de $\varphi(z)$, es mayor que el umbral definido $\theta$, se puede predecir como un ejemplo de la clase 1 y en caso contrario de la clase -1. En el algoritmo del perceptrón, la función de activación $\varphi(\cdot)$ es una simple función de paso de unidad, la cual algunas veces es llamada función de paso Heaviside:
 
-$\varphi(z)= \left \{ \begin{matrix} 
-1 & \text{si }v \geq 0\\
-0  & \text{si }v <0
-\end{matrix} \right.$            o
+```math
+\varphi(z)= 
+\left\{ 
+\begin{matrix} 
+1 & \text{si }v \geq \theta \\
+0  & \text{en otro caso }
+\end{matrix} 
+\right.
+```
 
-$\varphi(v)= \left \{ \begin{matrix} 
-1 & \text{si }v \geq 0\\ -1 & \text{en otro caso}
-\end{matrix} \right.$
+o
+
+```math
+\varphi(v)=
+\left\{
+\begin{matrix} 
+1 & \text{si }v \geq \theta \\
+-1 & \text{en otro caso}
+\end{matrix} \right.
+```
 
 Por simplicidad, podemos traer el umbral $\theta$ al lado izquierdo de la ecuación y definir a peso-cero como $w_0 = -\theta$ y $x_0= 1$, por lo tanto escribimos $z$ en una forma más compacta desde:
 
-$z= w_0x_0 + w_1x_1+ \ldots+w_m x_m = w^Tx$  y
- 
-$\varphi(v)= \left\{ \begin{matrix} 
-1 & \text{si }v \geq 0\\ -1 & \text{en otro caso}
-\end{matrix} \right.$
+$z= w_0x_0 + w_1x_1+ \ldots+w_m x_m = w^Tx$  
 
-En la siguiente figura ilustra como la salida de la red $z=w^T x$ es compactada en una salida binaria (-1 o 1) por la función de aptitud del perceptrón y cómo puede ser usada para descriminar entre dos clases linealmente separables:
+y
+
+```math
+\varphi(v)= \left \{ \begin{matrix} 
+1 & \text{si }v \geq 0 \\ -1 & \text{en otro caso}
+\end{matrix} \right.
+```
+
+En la siguiente figura se ilustra como la salida de la red $z=w^T x$ es reducida a una salida binaria (-1 o 1) por la función de activación del perceptrón y cómo puede ser usada para descriminar entre dos clases linealmente separables:
 
 ![activation_function](img/Untitled.png)
+
 
 ### 3. Ajuste de pesos por Descenso Escalonado
 
@@ -78,7 +107,7 @@ $\Delta w_1 = \eta (y^{(i)} - output^{(i)})x_1^{(i)}$
 
 $\Delta w_2 = \eta (y^{(i)} - output^{(i)})x_2^{(i)}$
 
-Antes de implementar la regla del perceptrón en Python, realizaremos un experimento para demostrar la belleza de esta regla. En los dos escenarios donde el perceptrón predice la etiqueta de la clase correctamente, los pesos se mantienen sin cambios, debido a que los valores de actualización son cero:
+Realizaremos un experimento para demostrar la belleza de esta regla. En los dos escenarios donde el perceptrón predice la etiqueta de la clase correctamente, los pesos se mantienen sin cambios, debido a que los valores de actualización son cero:
 
 (1) $y^{(i)} = -1$, $\hat{y}^{(i)}= -1$, $\Delta w_j= \eta(-1-(-1))x_j^{(i)}= 0$
 
@@ -145,7 +174,9 @@ Es importante notar que la convergencia del perceptrón es solamente garantizada
 
 ### Implementación de Perceptrón con SciKit-Learn
 
-* [`Ejemplo Perceptron ScikitLearn`](./code/perceptron_sklrn_iris.ipynb)
-* [Práctica 3. ]()
+La librería Scikit-Learn implementa el Perceptrón. Para más deatalles visiar la documentación [Perceptron](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Perceptron.html).
+
+* [`Ejemplo 2. Perceptron ScikitLearn`](./code/perceptron_sklrn_iris.ipynb)
+* [Práctica 3. ](./code/02-pr_ppn_breast_cancer.ipynb)
 
 [`Anterior`](../L02-adaline/README.md) | [`Siguiente`](../L04-backpropagation/README.md)
