@@ -165,4 +165,5 @@ El algoritmo de entrenamiento es el siguiente:
 
 ### 7. Modelado de funciones booleanas
 
+
 [`Anterior`](../README.md) | [`Siguiente`](../L03-perceptron/README.md)
