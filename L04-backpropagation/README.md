@@ -62,9 +62,9 @@ Algoritmo ***feedforward***
 
 Ejemplo 1. Para el siguiente MLP
 
-![Ejemplo MLP](./img/rn_online_2-2-2.png)
+![Ejemplo MLP|400](./img/rn_online_2-2-2.png)
 
-
+<img src="./img/rn_online_2-2-2.png" alt="Ejemplo MLP" width=“25”>
 
 Considerar el siguiente ejemplo de entrenamiento:
 
