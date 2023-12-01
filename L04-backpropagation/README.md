@@ -34,7 +34,9 @@ Las RNs están compuestas de varias capas, y han tenido un papel principal en lo
 
 Las Redes Neuronales Múlticapa (MLP, MulitiLayer Perceptron) representada en la siguiente imagen tiene una capa de entrada, una capa oculta y una capa de salida. Las unidades en la capa oculta están completamente conectada a la capa de entrada y a la capa de salida. Si una red tiene más de una capa oculta es llamada Red Neuronal Artificial Profunda (Deep ANNs).
 
-![mlp](./img/mlp.png)
+<div>
+<img src="./img/mlp.png" align="center" width="400"/>
+<div style="text-align: justify;"/>
 
 Mientras una unidad en la capa de salida puede ser suficiente para una tarea de clasificación binaria, es más común la forma de NN como la figura anterior, para realizar clasificación multiclase a través de la generalización de la técnica one-versus-all (OvA). La representación one-hot debe ser utilizada (como en variables categóricas).
 
@@ -62,7 +64,9 @@ Algoritmo ***feedforward***
 
 Ejemplo 1. Para el siguiente MLP
 
-![Ejemplo MLP|400](./img/rn_online_2-2-2.png)
+<div>
+<img src="./img/rn_online_2-2-2.png" align="center" width="400"/>
+<div style="text-align: justify;"/>
 
 Considerar el siguiente ejemplo de entrenamiento:
 
@@ -99,17 +103,26 @@ Calcular el error de la red para el Ejercicio 1. mediante la función de error M
 
 ## 2. Backpropagation
 
-Tipos de entrenamientos:
+Backpropagation es un enfoque muy eficiente para calcular las derivadas parciales de una compleja función de costo en Redes Neuronales Artificiales Multicapa. El objetivo es utilizar estas derivadas para aprender los coeficientes de pesos para parámetrizar una NN artificial multicapa.
+
+(Aquí las diapositivas)
+
+Entrenamiento del MLP paso a paso:
 
 * [`Ejemplo Online`](./code/brackpropagation_online.ipynb)
-* [`Ejemplo Minibatch`](./code/MLP_batch_own.ipynb)
-* [`Ejemplo Bach Keras`](./code/MLP_Keras.ipynb)
+* [`Ejemplo Batch`](./code/backpropagation_bach_vectorized.ipynb)
+
+
+### Práctica Backpropagation 
+
+* [`Practica Minibatch MNIST`](./code/MLP_batch_own.ipynb)
+
 
 ## 3. Algoritmos de retropagación modificados
 
 ### Regularización
 
-EL término de regularización permite reducir el grado de overfitting, el término de regularización L2 es definido como (no regularizan las unidades bias):
+EL término de regularización permite reducir el grado de overfitting, el término de regularización L2 es definido como (no se regularizan las unidades bias):
 
 $L2= \lambda||w||^2_2 = \lambda \Sigma_{j=1}^m w_j^2$
 
@@ -117,9 +130,16 @@ Mediante la agregación del término de regularización la función de costo log
 
 $J(w) = - \Sigma_{i=1}^n y^{[i]} \cdot log(a^{[i]}) + (1 -y^{[i]}) \cdot log(1-a^{[i]}) +  \lambda \Sigma_{j=1}^m wj^2$
 
+<div>
+<img src="./img/regularization_mlp.png" align="center" width="400"/>
+<div style="text-align: justify;"/>
+
+Fuente:[ scikit-learn : Varying regularization in Multi-layer Perceptron](https://scikit-learn.org/stable/auto_examples/neural_networks/plot_mlp_alpha.html)
+
 ### Implementación de scikit-learn
 
 * [`Ejemplo MLP Scikit-Learn`](./code/mlp_sklrn_bcancer.ipynb)
 * [`Kfold`](./code/01_cross_validation.ipynb)
+* [`Ejemplo Bach Keras`](./code/MLP_Keras.ipynb)
 
 [`Anterior`](../L02-1_perceptron/README.md) | [`Siguiente`](../L02-3_SOM/README.md)
