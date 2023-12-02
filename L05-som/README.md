@@ -27,7 +27,7 @@ K-medias o *K-Means* es un algoritmo de agrupación basada en prototipos lo que 
 
 __Algoritmo de k-means__
 
-1Elegir de manera aleatoria $k$ centroides de los ejemplos como centros de clusters iniciales.
+1. Elegir de manera aleatoria $k$ centroides de los ejemplos como centros de clusters iniciales.
 2. Asignar a cada ejemplo al centroide más cercano, $\mu^{(j)}, j \in \{1, \ldots k\}$.
 3. Mover el centroide al centro de los ejemplos que fueron asignados a él.
 4. Repetir pasos 2 y 3 hasta que la asignación del clúster no cambie o el usuario defina una tolerancia o un número mínimo de iteraciones es alcazado.
