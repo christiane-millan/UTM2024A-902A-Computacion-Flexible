@@ -63,7 +63,13 @@ En cuanto a la cuadrícula de la capa de salida $G$ las dimensiones más comunes
 
 Otras tipologías con más dimensiones son posibles, por cuestiones de visualización no son presentadas y tampoco son muy empleadas.
 
-#### Activación en SOM
+La SOM se presenta como  un proceso que implica:  
+
+1. __Competencia__. Las neuronas calculan un valor de una función discriminante. La neurona con la cantidad de mejor valor discriminante gana. 
+2. __Cooperación__. La neurona ganadora determina la localización espacial de una topología de vecinos de neuronas excitadas
+3. __Adaptación sináptica__. Las neuronas excitadas incrementa sus valores individuales de la función de discriminación en relación con el patrón de entrada a través de los pesos sinápticos. 
+
+#### Competencia SOM
 
 SOM siempre activa la neurona con la distancia más cercana al patrón de entrada.
 
@@ -77,15 +83,19 @@ La entrada a SOM es presentada a la RN a través de las neuronas de entrada. Las
 
 ### 3. Entrenamiento de la Red Unidimensional de Kohonen
 
-En el proceso de entrenamiento un patrón es presentado en la entrada, después de determinar a la neurona ganadora. Los centros de las neuronas se desplazan dentro del espacio de entrada según la regla: 
+El proceso de cooperación y adaptación sináptica, se puede decir que se engloban en el entrenamiento de la SOM. Después de que un patrón espresentado en la entrada y determinar a la neurona ganadora. 
+
+#### Cooperación
+
+Como se mencionó anteriormente, la neurona ganadora determina que neuronas ajustarán sus pesos sinápticos hacia el patrón actualmente presentado. Dado que las neuronas son interconectadas por relaciones vecinales (topología $G$). El entrenamiento de la red esta altamente influido por la función de topología $h(i,k,t)$, donde $i$ es la $i$-nésima neurona ganadora, $k$ es la neurona a ser adaptada y $t$ el paso del tiempo.
+
+#### Adaptación de pesos sinápticos
+
+Una vez que se han identificado las nueronas que serán adaptadas junto con la neurona ganadora $i$, los centros de las neuronas se desplazan dentro del espacio de entrada según la regla: 
 
 $\Delta c_k = \eta(t) \cdot h(i,k,t)\cdot(p-c_k)$. 
 
 donde el valor $\Delta c_k$ es simplemente agregado al centro. El último factor muestra que el cambio en la posición de las neuronas $k$ es proporcional a la distancia para el patrón de entrada $p$ y, como es usual, a una taza de aprendizaje dependiente del tiempo $\eta(t)$. 
-
-La topología de la red mencionada anteriormente es influida por la media de la función $h(i,k,t)$ la cual se discute a continuación.
-
-Las neuronas son interconectadas por relaciones vecinales. Esta relación de vecindario es llamada topología. El entrenamiento de la red esta altamente influido por la tipología. Esta definido por la función de topología  $h(i,k,t)$, donde $i$ es la $i$-nésima neurona ganadora, $k$ es la neurona a ser adaptada y $t$ el paso del tiempo. La dimensión de la tipología es referida cómo $G$. 
 
 [`SOM unidimensional paso a paso`](./code/som_unidimensional.ipynb)
 
