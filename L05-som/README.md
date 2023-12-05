@@ -77,7 +77,7 @@ La entrada a SOM es presentada a la RN a través de las neuronas de entrada. Las
 
 ### 3. Entrenamiento de la Red Unidimensional de Kohonen
 
-En el proceso de entrenamiento un patrón es presentado en la entrada, después de determinar ala neurona ganadora. Los centros de las neuronas se desplazan dentro del espacio de entrada según la regla: 
+En el proceso de entrenamiento un patrón es presentado en la entrada, después de determinar a la neurona ganadora. Los centros de las neuronas se desplazan dentro del espacio de entrada según la regla: 
 
 $\Delta c_k = \eta(t) \cdot h(i,k,t)\cdot(p-c_k)$. 
 
