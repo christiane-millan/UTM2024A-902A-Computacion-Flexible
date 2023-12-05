@@ -89,6 +89,16 @@ El proceso de cooperación y adaptación sináptica, se puede decir que se englo
 
 Como se mencionó anteriormente, la neurona ganadora determina que neuronas ajustarán sus pesos sinápticos hacia el patrón actualmente presentado. Dado que las neuronas son interconectadas por relaciones vecinales (topología $G$). El entrenamiento de la red esta altamente influido por la función de topología $h(i,k,t)$, donde $i$ es la $i$-nésima neurona ganadora, $k$ es la neurona a ser adaptada y $t$ el paso del tiempo.
 
+Por ejemplo, para una SOM unidimensional la función de vecindad que se podría proponer, es la siguiente:
+
+$h(i,k,t) =
+\begin{cases}
+1 & k \text{ vecino directo de }i ,\\ 1 & k=i,\\
+0& \text{de otro modo}
+\end{cases}$
+
+En este propuesta de $h$ solo la neurona ganadora $i$ y las las dos neuronas vecinas directas de $i$ son seleccionadas para ser adapatadas al patrón de entrada.
+
 #### Adaptación de pesos sinápticos
 
 Una vez que se han identificado las nueronas que serán adaptadas junto con la neurona ganadora $i$, los centros de las neuronas se desplazan dentro del espacio de entrada según la regla: 
