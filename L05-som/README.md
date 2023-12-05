@@ -91,11 +91,13 @@ Como se mencionó anteriormente, la neurona ganadora determina que neuronas ajus
 
 Por ejemplo, para una SOM unidimensional la función de vecindad que se podría proponer, es la siguiente:
 
-$h(i,k,t) =
+```math
+h(i,k,t) =
 \begin{cases}
 1 & k \text{ vecino directo de }i ,\\ 1 & k=i,\\
 0& \text{de otro modo}
-\end{cases}$
+\end{cases}
+```
 
 En este propuesta de $h$ solo la neurona ganadora $i$ y las las dos neuronas vecinas directas de $i$ son seleccionadas para ser adapatadas al patrón de entrada.
 
