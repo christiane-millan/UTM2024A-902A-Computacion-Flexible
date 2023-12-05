@@ -42,11 +42,50 @@ __Algoritmo de k-means__
 
 #### Estructura básica de SOM
 
-Los SOM al igual que el cerebro humano tienen la tarea de mapear información de alta dimensión (n dimensiones) en áreas de una cuadrícula de baja dimensión (g dimensiones) para dibujar un mapa del espacio de alta dimensión.
+La estructura de SOM solo contiene una capa de entrada de neuronas y una capa de neuronas de salida. No hay capaz ocultas. Por lo tanto, existen dos espacio en los cuales trabaja el SOM:
 
-La estructura de SOM solo contiene una capa de entrada de neuronas y una capa de neuronas de salida. No hay capaz ocultas. 
+- El espacio de **entrada $N$ dimensional** y
+- La **cuadrícula de $G$ dimensiones** en la cual las neuronas se encuentran e indica las relaciones del vecindad entre las neuronas y, por lo tanto, la topología de la red.
+
+<div>
+<img src="./img/inpu_output.png" align="center" width="400"/>
+<div/>
+
+En cuanto a la cuadrícula de la capa de salida $G$ las dimensiones más comunes son:
+
+- En una cuadrícula de una dimensión las neuronas tiene dos vecinos (excepto para la neurona del inicio y la del final) representado como un arreglo unidmensional.
+
+- En una cuadrícula de dos dimensiones sera una arreglo cuadrado de neuronas.
+
+<div>
+<img src="./img/arquitectura_SOM.png" align="center" width="400"/>
+<div style="text-align: justify;"/>
+
+Otras tipologías con más dimensiones son posibles, por cuestiones de visualización no son presentadas y tampoco son muy empleadas.
+
+#### Activación en SOM
+
+SOM siempre activa la neurona con la distancia más cercana al patrón de entrada.
+
+La entrada a SOM es presentada a la RN a través de las neuronas de entrada. Las neuronas reciben un patrón (valores reales) de la capa de entrada. Un SOM requiere que las entradas estén normalizadas entre -1 y 1. Al presentar un patrón a la red se genera una reacción de las neuronas de salida.
+
+1. **Entrada** de un valor arbitrario $p$ de la entrada del espacio $R^N$.
+2. **Calculo de la distancia** entre cada neurona $k$ y $p$ mediante media de la normal, es decir, el cálculo de $||p-c_k||$.
+3. **Una neurona se activa**, nombrada como neurona $i$ con la menor distancia calculada a la entrada. Todas las otras neuronas se mantienen inactivas. Este paradigma de actividad es también llamado _winner-takes-all scheme_. 
+
+
 
 ### 3. Entrenamiento de la Red Unidimensional de Kohonen
+
+En el proceso de entrenamiento un patro es presentado en la entrada, después de determinar ala neurona ganadora. Los centros de las neuronas se desplazan dentro del espacio de entrada según la regla: 
+
+$\Delta c_k = \eta(t) \cdot h(i,k,t)\cdot(p-c_k)$. 
+
+donde el valor $\Delta c_k$ es simplemente agregado al centro. El último factor muestra que el cambio en la posición de las neuronas $k$ es proporcional a la distancia para el patrón de entrada $p$ y, como es usual, a una taza de aprendizaje dependiente del tiempo $\eta(t)$. 
+
+La topología de la red mencionada anteriormente es influida por la media de la función $h(i,k,t)$ la cual se discute a continuación.
+
+Las neuronas son interconectadas por relaciones vecinales. Esta relación de vecindario es llamada topología. El entrenamiento de la red esta altamente influido por la tipología. Esta definido por la función de topología  $h(i,k,t)$, donde $i$ es la $i$-nésima neurona ganadora, $k$ es la neurona a ser adaptada y $t$ el paso del tiempo. La dimensión de la tipología es referida cómo $G$. 
 
 [`SOM unidimensional paso a paso`](./code/som_unidimensional.ipynb)
 
