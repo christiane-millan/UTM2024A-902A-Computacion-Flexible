@@ -75,15 +75,15 @@ SOM siempre activa la neurona con la distancia más cercana al patrón de entrad
 
 La entrada a SOM es presentada a la RN a través de las neuronas de entrada. Las neuronas reciben un patrón (valores reales) de la capa de entrada. Un SOM requiere que las entradas estén normalizadas entre -1 y 1. Al presentar un patrón a la red se genera una reacción de las neuronas de salida.
 
-1. **Entrada** de un valor arbitrario $p$ de la entrada del espacio $R^N$.
-2. **Calculo de la distancia** entre cada neurona $k$ y $p$ mediante media de la normal, es decir, el cálculo de $||p-c_k||$.
-3. **Una neurona se activa**, nombrada como neurona $i$ con la menor distancia calculada a la entrada. Todas las otras neuronas se mantienen inactivas. Este paradigma de actividad es también llamado _winner-takes-all scheme_. 
+1. **Entrada** de un valor arbitrario $x$ de la entrada del espacio $R^N$.
+2. **Calculo de la distancia** entre cada neurona $w_j$ y $x$ mediante media de la normal, es decir, el cálculo de $||x-w_j||$.
+3. **Una neurona se activa**, nombrada como neurona $i(x)$ con la menor distancia calculada a la entrada. Todas las otras neuronas se mantienen inactivas. Este paradigma de actividad es también llamado _winner-takes-all scheme_. 
 
 
 
 ### 3. Entrenamiento de la Red Unidimensional de Kohonen
 
-El proceso de cooperación y adaptación sináptica, se puede decir que se engloban en el entrenamiento de la SOM. Después de que un patrón espresentado en la entrada y determinar a la neurona ganadora. 
+El proceso de cooperación y adaptación sináptica, se puede decir que se engloban en el entrenamiento de la SOM. Después de que un patrón es presentado en la entrada y se determina la neurona ganadora. 
 
 #### Cooperación
 
@@ -111,7 +111,21 @@ donde el valor $\Delta c_k$ es simplemente agregado al centro. El último factor
 
 [`SOM unidimensional paso a paso`](./code/som_unidimensional.ipynb)
 
+#### Algoritmo de entrenamiento
+
+1. Inicializar pesos $w_j$ aleotorios cercanos cero 
+2. Hacer para cada $x$ en $X$ 
+    - Presentar $x$ normalizado
+    - Obtener neurona ganadora $i(x)$
+    - Mediante $h(i, j, t)$ determinar nueronas excitadas
+    - Determinar $\Delta w_j= \eta h_{j,i(x)} (x - w_j)$
+    - Actualizar pesos $w_j(n+1) = w_j(n) + \eta(n)h_{j,i}(x)(n)(x(n) - w_j(n))$
+3. Repetir paso 2 hasta alcanzar criterio de parada
+
 ### 4. Visualización de clústers
+
+#### Entrenamiento de una SOM de dos dimensiones
+
 
 
 [`Anterior`](../L04-backpropagation/README.md) | [`Siguiente`](../L06-fuzzy-logic/README.md)

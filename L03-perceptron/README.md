@@ -147,7 +147,7 @@ Considerar la compuerta lógica AND:
 |3    |( -1,    1) |    -1      |
 |4    |( -1,   -1) |    -1      |
 
-Realizar las primeras dos épocas de entrenamiento de Adaline considerando los pesos iniciales: $ w_b = -0.6,  w_1=0.3, w_2= 0.2$, con una taza de aprendizaje $\eta = 0.5$.
+Realizar las primeras dos épocas de entrenamiento de Perceptrón considerando los pesos iniciales: $ w_b = -0.6,  w_1=0.3, w_2= 0.2$, con una taza de aprendizaje $\eta = 0.5$.
 
 ---
 
