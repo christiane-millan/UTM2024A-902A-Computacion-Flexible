@@ -105,7 +105,7 @@ Una buena elección de $h_{i,j}$ es la función Gaussiana: $h_{i,j(x)}(n)= exp \
 
 donde:
 1. $d_{j,i}^2 = ||r_j - r_i||^2$ el vector discreto $r_j$ define la posición de la neurona excitada $j$ y $r_i$ define la posición de la neurona ganadora $i$. Ambas son medias en un espacio de salida discreto. En el caso de un cuadrícula unidimensional, $d_{j,i}$, es un valor entero igual a $|j-i|$.
-2.  $\sigma(n) = \sigma_0 \, exp \big( - \frac{n}{\tau_1}\big)$ $n= 0, 1, 2, \ldots,$ donde $\sigma_0$ es el valor de $\sigma$ al inicio del algoritmo SOM y $\tau_1$ es una constante de tiempo a ser elegida por el diseñador. 
+2.  $\sigma(n) = \sigma_0 \cdot exp \big( - \frac{n}{\tau_1}\big)$ $n= 0, 1, 2, \ldots,$ donde $\sigma_0$ es el valor de $\sigma$ al inicio del algoritmo SOM y $\tau_1$ es una constante de tiempo a ser elegida por el diseñador. 
 
 #### Adaptación de pesos sinápticos
 
@@ -124,7 +124,7 @@ donde $\tau_2$ es otra constante de tiempo para el algoritmo SOM.
 
 #### Algoritmo de entrenamiento
 
-1. Inicializar pesos $w_j$ aleotorios cercanos cero 
+1. Inicializar pesos $w_j$ aleotorios cercanos cero (normalizados)
 2. Hacer para cada $x$ en $X$ 
     - Presentar $x$ normalizado
     - Obtener neurona ganadora $i(x)$

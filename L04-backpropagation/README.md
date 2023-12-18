@@ -91,6 +91,10 @@ La función de costo del Promedio de Entropia Cruzada (BCE, Binary Cross-Entropy
 
 $J(w) = - \Sigma_{i=1}^n y^{[i]}\cdot log(a^{[i]}) + (1 -y^{[i]}) \cdot log(1-a^{[i]})$
 
+Derivada de BCE
+
+$\frac{\partial J(w)}{\partial a^{[i]}} = -\frac{y^{[i]}}{a^{[i]}}+\frac{1 - y^{[i]}}{1- a^{[i]}}$
+
 Existe una función de costo para multiples clases se utiliza (CCE, Categorical Cross-Entropy)
 
 $J(w) = - \Sigma_{i=1}^{c} t_i \cdot log(a^{[i]})$
